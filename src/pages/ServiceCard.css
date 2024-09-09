@@ -1,0 +1,57 @@
+.card {
+  width: 100%; /* Ensure the card takes full width of the parent */
+  height: auto;
+  background: white;
+  padding: 1em;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+  margin-bottom: 30px; /* Adjust margin-bottom as needed */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  background-color: rgb(236, 236, 236);
+  width: 100%;
+  height: 200px;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.heading {
+  font-weight: 600;
+  color: rgb(88, 87, 87);
+  padding: 7px 0;
+}
+
+.heading:hover {
+  cursor: pointer;
+}
+
+.learn-more-icon {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 16px; /* Adjusted size to fit better */
+  color: #287FFB;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.learn-more-icon:hover {
+  transform: scale(1.2);
+  color: #0056b3;
+}

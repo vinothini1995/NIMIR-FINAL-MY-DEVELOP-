@@ -1,0 +1,156 @@
+/* Footer container */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: black;
+  color: #2d87ff;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+/* Individual footer section */
+.footer-section {
+  flex: 1;
+  margin: 0 20px;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  border-bottom: 2px solid #0d0d0e;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: #eeb624;
+}
+
+/* Footer unordered list */
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin: 5px 0;
+}
+
+.footer-list a {
+  color: #2d87ff;
+  text-decoration: none;
+  padding: 5px;
+  display: block;
+  border-radius: 5px;
+}
+
+.footer-list a:hover {
+  color: #eeb624;    
+  text-decoration: none;
+}
+
+/* Social media and navigation links */
+.footer-social-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  border-top: 1px solid #0d0d0e;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-social-media {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social-media a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 2px solid #fff; /* Icon box border */
+  border-radius: 50%;
+  color: white; /* Icon color */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.footer-social-media a:hover {
+  background-color: #eeb624; /* Background color change on hover */
+  color: #2d87ff; /* Icon color change on hover */
+}
+
+/* Footer navigation links */
+.footer-nav-links {
+  text-align: right;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+/* .footer-nav-list li{
+  color: #0d0d0e;
+} */
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .footer-nav-list {
+    flex-direction: column; /* Stack the items vertically */
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    text-align: center; /* Ensure text is centered */
+  }
+
+  .footer-nav-list li {
+    margin: 10px 0; /* Add space between items */
+  }
+}
+
+
+.footer-nav-list li {
+  margin-left: 15px;
+  display: inline;
+}
+
+.footer-nav-list a {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.footer-nav-list a:hover {
+  background-color: #eeb624; /* Background color change on hover */
+  color: #2d87ff; /* Icon color change on hover */
+}
+
+/* Adjustments for small screens */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin: 10px 0;
+  }
+
+  .footer-social-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-media-links {
+    margin-bottom: 10px;
+  }
+
+  .footer-nav-links {
+    text-align: center; /* Ensure this line has no hidden characters */
+  }
+}

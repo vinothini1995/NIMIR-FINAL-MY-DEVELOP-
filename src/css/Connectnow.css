@@ -1,0 +1,111 @@
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This will make sure the content is vertically centered within the viewport */
+    gap: 20px; /* Optional: Adds space between the contact-left and contact-right sections */
+  }
+  
+  .contact-left, .contact-right {
+    flex: 1; /* Ensures that both sections take up equal space */
+    max-width: 500px; /* Optional: Adds a max width to prevent the sections from stretching too wide */
+  }
+  
+  
+  .contact-left h2 {
+    margin-bottom: 10px;
+  }
+  
+  .radio-options label {
+    display: inline-block;
+    margin-right: 20px; /* Adjust the spacing between options as needed */
+  }
+  
+  
+  .contact-form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .form-group div {
+    width: 48%;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    height: 80px;
+  }
+  
+  .submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  .contact-right {
+    padding-left: 20px;
+    border-left: 1px solid #ccc;
+  }
+  
+  .info-section {
+    margin-bottom: 20px;
+  }
+  
+  .info-section h4 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+  
+  hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
+  }
+  
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Stacks the sections vertically */
+    gap: 10px; /* Adjust gap for smaller screens */
+    height: auto; /* Removes fixed height for better mobile responsiveness */
+    padding: 20px; /* Adds padding around the content on smaller screens */
+  }
+
+  .contact-right {
+    padding-left: 0;
+    border-left: none; /* Removes border on mobile */
+  }
+
+  .submit-button {
+    width: 100%; /* Ensure the button takes up full width on mobile */
+  }
+}
