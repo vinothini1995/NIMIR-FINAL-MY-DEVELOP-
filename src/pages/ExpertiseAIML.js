@@ -2,23 +2,32 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
-// Import FontAwesome icons, replaced FaAutomobile with FaCogs
 import { FaBrain, FaRobot, FaChartLine, FaLanguage, FaCogs, FaDatabase, FaCubes, FaEye } from 'react-icons/fa';
 
 // Styled components for layout and animation
 const Container = styled.div`
-  padding: 20px;
+  // padding: 20px;
   text-align: center;
 `;
 
 const Title = styled.h1`
   font-size: 36px;
-  color:  #eeb624;
+  color: #eeb624;
   margin-bottom: 20px;
   animation: fadeIn 1s ease-in;
-  background:#2d87ff;
-  height:100px;
-  padding:18px;
+  background: #2d87ff;
+  height: 100px;
+  padding: 18px;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    padding: 8px;
+  }
 `;
 
 const SubTitle = styled.h2`
@@ -26,6 +35,14 @@ const SubTitle = styled.h2`
   color: #666;
   margin-top: 10px;
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
 
 const CardContainer = styled.div`
@@ -33,6 +50,14 @@ const CardContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
 `;
 
 const Card = styled.div`
@@ -44,9 +69,19 @@ const Card = styled.div`
   text-align: center;
   transition: transform 0.3s ease;
   animation: slideUp 0.8s ease-in-out;
-  
+
   &:hover {
     transform: translateY(-10px);
+  }
+
+  @media (max-width: 768px) {
+    width: 220px;
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    width: 180px;
+    padding: 10px;
   }
 `;
 
@@ -54,30 +89,39 @@ const IconWrapper = styled.div`
   font-size: 40px;
   color: #eeb624;
   margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 35px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 30px;
+  }
 `;
 
 const CardTitle = styled.h3`
   font-size: 22px;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
 `;
 
 const CardDescription = styled.p`
   color: #555;
   font-size: 16px;
-`;
 
-// Keyframe animations
-const fadeIn = `
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
-`;
 
-const slideUp = `
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+  @media (max-width: 480px) {
+    font-size: 12px;
   }
 `;
 
@@ -133,10 +177,9 @@ const ExpertiseAIML = () => {
         </CardContainer>
         
         <SubTitle>Our AI/ML Expertise</SubTitle>
-        <p style={{textAlign:'center'}}>Our team has extensive experience working with AI/ML frameworks, empowering businesses with automation, data insights, and intelligent solutions. Whether it's natural language processing, predictive analytics, or computer vision, we are equipped to transform your business with the latest technology.</p>
+        <p style={{textAlign: 'justify'}}>Our team has extensive experience working with AI/ML frameworks, empowering businesses with automation, data insights, and intelligent solutions. Whether it's natural language processing, predictive analytics, or computer vision, we are equipped to transform your business with the latest technology.</p>
 
-        <p style={{textAlign:'center'}}>From training complex neural networks to implementing machine learning workflows, our goal is to create scalable and efficient systems that can handle real-world challenges.</p>
-        
+        <p style={{textAlign: 'justify'}}>From training complex neural networks to implementing machine learning workflows, our goal is to create scalable and efficient systems that can handle real-world challenges.</p>
       </Container>
       <Footer />
     </div>

@@ -175,7 +175,7 @@ const CS = () => {
       </ImageWithText>
 
       <div style={{ marginTop: '40px', textAlign: 'center' }}>
-        <h6 style={{ color: '#2d87ff' }}>Ready to enhance your cybersecurity strategy? Contact us today to learn how we can help protect your digital assets and ensure a secure future for your business.</h6>
+        <h4 style={{ color: '#2d87ff' }}>Ready to enhance your cybersecurity strategy? Contact us today to learn how we can help protect your digital assets and ensure a secure future for your business.</h4>
       </div>
       <Footer />
     </div>

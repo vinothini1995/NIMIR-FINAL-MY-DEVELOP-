@@ -2,22 +2,30 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
-import { FaBrain, FaGoogle, FaProjectDiagram, FaRobot, FaCogs } from 'react-icons/fa'; // FontAwesome icons
+import { FaBrain, FaGoogle, FaProjectDiagram, FaRobot, FaCogs, FaChartLine, FaCubes, FaDatabase } from 'react-icons/fa'; // FontAwesome icons
 
 // Styled components for layout and animation
 const Container = styled.div`
-  padding: 20px;
   text-align: center;
 `;
 
 const Title = styled.h1`
   font-size: 36px;
-  color:  #eeb624;
+  color: #eeb624;
   margin-bottom: 20px;
   animation: fadeIn 1s ease-in;
-   background:#2d87ff;
-  height:100px;
-  padding:18px;
+  background: #2d87ff;
+  height: 100px;
+  padding: 18px;
+   @media (max-width: 768px) {
+    font-size: 28px;
+    padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    padding: 8px;
+  }
 `;
 
 const SubTitle = styled.h2`
@@ -25,6 +33,13 @@ const SubTitle = styled.h2`
   color: #666;
   margin-top: 10px;
   margin-bottom: 30px;
+    @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
 
 const CardContainer = styled.div`
@@ -32,6 +47,15 @@ const CardContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  
+  @media (max-width: 1024px) {
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Card = styled.div`
@@ -43,7 +67,7 @@ const Card = styled.div`
   text-align: center;
   transition: transform 0.3s ease;
   animation: slideUp 0.8s ease-in-out;
-  
+
   &:hover {
     transform: translateY(-10px);
   }
@@ -51,7 +75,7 @@ const Card = styled.div`
 
 const IconWrapper = styled.div`
   font-size: 40px;
-  color:  #eeb624;
+  color: #eeb624;
   margin-bottom: 15px;
 `;
 
@@ -63,7 +87,7 @@ const CardTitle = styled.h3`
 const CardDescription = styled.p`
   color: #555;
   font-size: 16px;
-  text-align:justify
+  text-align: justify;
 `;
 
 // Keyframe animations
@@ -81,14 +105,14 @@ const slideUp = `
   }
 `;
 
-const ExpertiseGenerativeAI = () => {
+const ExpertiseGAI = () => {
   return (
     <div>
       <Header />
       <Container>
         <Title>Generative AI Tools & Platforms</Title>
         <SubTitle>Pioneering AI-Driven Content Creation and Automation</SubTitle>
-        <p style={{textAlign:'center'}}>Our expertise in leveraging state-of-the-art generative AI tools allows us to push the boundaries of innovation. From language models to synthetic data generation, we offer comprehensive solutions:</p>
+        <p style={{textAlign: 'center'}}>Our expertise in leveraging state-of-the-art generative AI tools allows us to push the boundaries of innovation. From language models to synthetic data generation, we offer comprehensive solutions:</p>
         <CardContainer>
           <Card>
             <IconWrapper><FaBrain /></IconWrapper>
@@ -115,15 +139,30 @@ const ExpertiseGenerativeAI = () => {
             <CardTitle>MLOps Frameworks</CardTitle>
             <CardDescription>Operationalize AI models with platforms like MLflow, Kubeflow, and Run, ensuring seamless integration and deployment.</CardDescription>
           </Card>
+          {/* Added Cards */}
+          <Card>
+            <IconWrapper><FaChartLine /></IconWrapper>
+            <CardTitle>Data Analytics with AI</CardTitle>
+            <CardDescription>Empower your business with AI-driven analytics to uncover hidden insights and trends in your data.</CardDescription>
+          </Card>
+          <Card>
+            <IconWrapper><FaCubes /></IconWrapper>
+            <CardTitle>AI for 3D Modeling</CardTitle>
+            <CardDescription>Explore AI applications in creating and enhancing 3D models for various industries like gaming and architecture.</CardDescription>
+          </Card>
+          <Card>
+            <IconWrapper><FaDatabase /></IconWrapper>
+            <CardTitle>AI in Big Data</CardTitle>
+            <CardDescription>Leverage AI in big data platforms for enhanced data processing and automated decision-making processes.</CardDescription>
+          </Card>
         </CardContainer>
         
         <SubTitle>Why Generative AI Matters</SubTitle>
-        <p style={{textAlign:'center'}}>Generative AI has transformed how businesses innovate, creating opportunities for automation, personalized content, and creative AI-driven solutions. Whether it’s language models or image generation, we help businesses harness the full potential of AI.</p>
-        
+        <p style={{textAlign: 'justify'}}>Generative AI has transformed how businesses innovate, creating opportunities for automation, personalized content, and creative AI-driven solutions. Whether it’s language models or image generation, we help businesses harness the full potential of AI.</p>
       </Container>
       <Footer />
     </div>
   );
 };
 
-export default ExpertiseGenerativeAI;
+export default ExpertiseGAI;
