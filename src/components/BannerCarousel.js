@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { styled } from '@mui/system';
-import { Typography, Box, Button } from '@mui/material';  // Import Button
+import { Typography, Box, Button } from '@mui/material';
 import banner1 from '../images/Cloud.png';
 import banner2 from '../images/Empower.png';
 import banner3 from '../images/Unlocking.png';
 import banner4 from '../images/Cybersecurity.png';
 import banner5 from '../images/arch.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from 'react-router-dom';  // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const FullWidthContainer = styled('div')({
   width: '100%',
-  // height: '500px',
-  minHeight: '100vh',  // Ensure full height of the viewport without vertical scrolling
-
+  minHeight: '100vh',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -21,56 +19,27 @@ const FullWidthContainer = styled('div')({
   backgroundSize: 'cover',
   margin: 0,
   padding: 0,
-  overflowX: 'hidden',
-  overflowY:'hidden',
-
-  '@media (max-width: 1200px)': {
-    // height: '400px',
-    height: 'auto',
-  },
-
-  '@media (max-width: 960px)': {
-    flexDirection: 'column',
-    height: 'auto',
-    padding: '20px',
-  },
-
-  '@media (max-width: 600px)': {
-    height: 'auto',
-    padding: '10px',
-  },
+  overflow: 'hidden',
 });
 
-const slideInKeyframes = {
-  '@keyframes slideInFromLeft': {
-    from: {
-      transform: 'translateX(-100%)',
-      opacity: 0,
-    },
-    to: {
-      transform: 'translateX(0)',
-      opacity: 1,
-    },
-  },
-};
-
-const AnimatedContainer = styled(Box)(({ theme }) => ({
+const SliderWrapper = styled(Box)({
   display: 'flex',
-  alignItems: 'center',
+  transition: 'transform 0.5s ease-in-out', // Smooth transition for sliding effect
   width: '100%',
-  animation: 'slideInFromLeft 1s ease-out',
-  ...slideInKeyframes,
+  height: '100%',
+});
 
-  '@media (max-width: 1200px)': {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
+const Slide = styled(Box)({
+  minWidth: '100%', // Each slide takes full width
+  display: 'flex',
+  flexDirection: 'row', // Images and content side by side
+  alignItems: 'center',
+  justifyContent: 'center',
 
   '@media (max-width: 960px)': {
-    flexDirection: 'column',
-    alignItems: 'center',
+    flexDirection: 'column', // Stack image and content vertically on smaller screens
   },
-}));
+});
 
 const CarouselImage = styled('img')({
   height: '100%',
@@ -80,21 +49,16 @@ const CarouselImage = styled('img')({
   borderRadius: '5px',
   transition: 'transform 0.5s ease-in-out',
 
-  '@media (max-width: 1200px)': {
-    maxWidth: '500px',
+  '&:hover': {
+    transform: 'scale(1.05)',
   },
 
   '@media (max-width: 960px)': {
-    maxWidth: '400px',
+    maxWidth: '90%',
   },
 
   '@media (max-width: 600px)': {
-    maxWidth: '100%',
-    height: 'auto',
-  },
-
-  '&:hover': {
-    transform: 'scale(1.05)',
+    maxWidth: '80%',
   },
 });
 
@@ -109,6 +73,7 @@ const StyledHeading = styled(Typography)(({ theme }) => ({
 
   '@media (max-width: 960px)': {
     fontSize: '2rem',
+    textAlign: 'center',
   },
 
   '@media (max-width: 600px)': {
@@ -129,6 +94,7 @@ const StyledParagraph = styled(Typography)(({ theme }) => ({
 
   '@media (max-width: 960px)': {
     fontSize: '1.2rem',
+    textAlign: 'center',
   },
 
   '@media (max-width: 600px)': {
@@ -137,8 +103,41 @@ const StyledParagraph = styled(Typography)(({ theme }) => ({
   },
 }));
 
+const ResponsiveButton = styled(Button)({
+  marginTop: '20px',
+  fontSize: '18px',
+  width: '200px',
+  height: '50px',
+  borderRadius: '30px',
+  padding: '10px 20px',
+  margin: '0 auto',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: '2px solid #eeb624',
+  color: '#eeb624',
+  transition: 'background-color 0.3s ease, color 0.3s ease',
+
+  '&:hover': {
+    backgroundColor: '#eeb624',
+    color: 'black',
+  },
+
+  '@media (max-width: 960px)': {
+    width: '180px',
+    fontSize: '16px',
+    height: '45px',
+  },
+
+  '@media (max-width: 600px)': {
+    width: '160px',
+    fontSize: '14px',
+    height: '40px',
+  },
+});
+
 const BannerCarousel = () => {
-  const navigate = useNavigate();  // Define navigate
+  const navigate = useNavigate();
 
   const banners = [
     {
@@ -163,7 +162,7 @@ const BannerCarousel = () => {
       image: banner4,
       heading: 'Elevating Cybersecurity:',
       link: 'casestudy/CasestudyCS',
-      text: 'Integrating RCSA Controls into AI and Generative AI Systems for Enhanced Risk Management. We ensure to complete & compile an overview of potential AI/GAI attacks on RCSA cybersecurity controls.',
+      text: 'Integrating RCSA Controls into AI and Generative AI Systems for Enhanced Risk Management.',
     },
     {
       image: banner5,
@@ -184,53 +183,42 @@ const BannerCarousel = () => {
   }, [banners.length]);
 
   const handleLearnMoreClick = () => {
-    navigate(banners[currentIndex].link);  // Use navigate
+    navigate(banners[currentIndex].link); // Use navigate
   };
 
   return (
-    <div>
-      <FullWidthContainer>
-        <AnimatedContainer>
-          <Box flex={1} padding="20px" display="flex" flexDirection="column" justifyContent="center" maxWidth="700px">
-            <StyledHeading variant="h2">{banners[currentIndex].heading}</StyledHeading>
-            <StyledParagraph variant="body1">{banners[currentIndex].text}</StyledParagraph>
-
-            {/* Add Button */}
-            <Button
-              variant="outlined" // Change to outlined for an outline effect
-              sx={{
-                marginTop: '20px',
-                fontSize: '18px',
-                width: '200px',   // Set width
-                height: '50px',   // Set height
-                borderRadius: '30px',  // Rounded corners
-                padding: '10px 20px',  // Padding inside the button
-                margin: '0 auto',     // Center the button horizontally
-                display: 'flex',       // Flexbox display to align and justify content
-                alignItems: 'center',  // Center text vertically
-                justifyContent: 'center', // Center text horizontally
-                border: '2px solid #eeb624',  // Outline border
-                color: '#eeb624',      // Initial text color
-                transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover
-
-                '&:hover': {
-                  backgroundColor: '#eeb624', // Change background on hover
-                  color: 'black',              // Change text color on hover
-                },
-              }}
-              onClick={handleLearnMoreClick}
+    <FullWidthContainer>
+      <SliderWrapper style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        {banners.map((banner, index) => (
+          <Slide key={index}>
+            <Box
+              flex={1}
+              padding="20px"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              maxWidth="700px"
+              width="100%"
             >
-              Learn More
-            </Button>
-
-          </Box>
-          <Box flex={1} height="100%" display="flex" justifyContent="center" alignItems="center">
-            <CarouselImage src={banners[currentIndex].image} alt={`Slide ${currentIndex + 1}`} />
-          </Box>
-        </AnimatedContainer>
-      </FullWidthContainer>
-    </div>
+              <StyledHeading variant="h2">{banner.heading}</StyledHeading>
+              <StyledParagraph variant="body1">{banner.text}</StyledParagraph>
+              <ResponsiveButton onClick={handleLearnMoreClick}>Learn More</ResponsiveButton>
+            </Box>
+            <Box
+              flex={1}
+              height="100%"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              maxWidth="600px"
+            >
+              <CarouselImage src={banner.image} alt={`Slide ${index + 1}`} />
+            </Box>
+          </Slide>
+        ))}
+      </SliderWrapper>
+    </FullWidthContainer>
   );
 };
 
-export default BannerCarousel;
+export default BannerCarousel;

@@ -94,5 +94,4 @@ const Expertise = () => {
     </div>
   );
 };
-
 export default Expertise;
